@@ -1,7 +1,7 @@
 # ThermoLab
 
-Local Computational Mathematics project for students and teachers. First deliver
-the working local preview. GitHub, hosting and the college report are later steps.
+Computational Mathematics project for students and teachers. A local application,
+hosted showcase and self-contained Python notebook use the same calculation model.
 
 ## Model and interpretation
 

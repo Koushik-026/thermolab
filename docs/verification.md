@@ -4,6 +4,9 @@ Recorded on 17 November 2026.
 
 - 27 Python mathematical, local HTTP and hosted-application tests passed.
 - 37 complete browser workflow checks passed through the production WSGI entry.
+- The deployed HTTPS service passed all 37 workflow checks plus 5 additional
+  checks for fractional labels, notebook download, playback speed, restarting
+  from the end and the phone graph.
 - The earlier local review also passed 5 additional checks for fractional labels,
   notebook download, playback speed, restarting from the end and phone graph size.
 - The self-contained notebook executed all 6 code cells in a fresh Python kernel
@@ -19,3 +22,8 @@ target edge cases, the guided comparison, the dialog and a 390-pixel phone layou
 
 These are small deterministic educational examples. They are not measured thermal
 experiments, a load-capacity benchmark or a full accessibility audit.
+
+The live service is https://thermolab-cooling.onrender.com. Render runs Gunicorn
+27.0.1 with Python 3.12.14 in Singapore on the free compute plan. The deployment
+build runs the 27 Python tests. HTTP readiness was also checked after the service
+became live; the platform's default TCP readiness check remains configured.

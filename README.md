@@ -4,6 +4,9 @@ A small Computational Mathematics lab for a familiar question: how does an objec
 approach room temperature? Change the conditions, watch the result and compare
 the exact solution with Euler and Runge–Kutta estimates.
 
+**[Open the live showcase](https://thermolab-cooling.onrender.com)**. The warm-cup
+experiment loads automatically. Press Play or change a setting and run it again.
+
 ## Run the website
 
 Install Python 3.10 or later. No extra Python packages are required for the website.
@@ -76,7 +79,9 @@ python -m unittest test_core -v
 
 Tests cover fixed independent values, convergence, cooling/warming, targets,
 stability, shortened steps, bad inputs and the HTTP API. `browser-check.mjs` is an
-optional Playwright workflow check. `output/` keeps local verification records.
+optional Playwright workflow check. The hosted HTTPS workflow passed 42 browser
+checks. [Verification notes](docs/verification.md) describe the scope.
+`output/` keeps local verification records.
 
 Source files: `core.py` owns the model, `app.py` handles the shared web application,
 `server.py` runs it locally, and `web/` contains the interface. `build_notebook.py` embeds the model in
