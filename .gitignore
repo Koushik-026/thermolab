@@ -1,0 +1,11 @@
+__pycache__/
+.venv/
+output/
+thermolab_exports/
+*.log
+documentation/
+*.private.json
+data/
+*.docx
+*.pdf
+.env

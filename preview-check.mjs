@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+const require=createRequire('C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1116-1220-0_26.1116.1220.0_x64__3k8sg7r9htsxt/dependencies/node/package.json');
+const {chromium}=require('playwright');
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const page=await browser.newPage({viewport:{width:1440,height:1100},reducedMotion:'reduce'});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto('http://127.0.0.1:3201');
+await page.waitForFunction(()=>document.documentElement.dataset.ready==='true');
+fs.mkdirSync('output/browser',{recursive:true});
+await page.screenshot({path:'output/browser/first-desktop.png',fullPage:true});
+console.log(JSON.stringify({errors,title:await page.title(),presets:await page.locator('.preset').count(),temperature:await page.locator('#temperature').textContent()}));
+await browser.close();
